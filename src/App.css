@@ -1,38 +1,193 @@
-.App {
-  text-align: center;
+:root{
+    --background-first: #2980b9;
+    --background-last: #8e44ad;
+    --background-item: white;
+    --background-input: #F5F6F7;
+    --background-border-input: #CCD0D5;
+    --background-error: #BE4B49;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    /* background: linear-gradient(120deg, var(--background-first), var(--background-last)) */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.register{
+    background-color: var(--background-item);
+    padding: 12px;
+    border-radius: 8px;
+    max-width: 380px;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h2{
+    margin: 10px 0 20px 0;
+    text-align: center;
+    font-size: 1.8rem;
 }
 
-.App-link {
-  color: #61dafb;
+.form-inner{
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.form-group{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.active .form-input{
+    border: solid 1px var(--background-error);
+    animation: slow linear .2s;
+
+}
+
+.form-group ~ .form-group{
+    margin-top: 12px;
+}
+
+.form-title{
+    font-size: .8rem;
+    margin-bottom: 6px;
+}
+
+.form-input{
+    outline: none;
+    height: 35px;
+    background-color: var(--background-input);
+    border: solid 1px var(--background-border-input);
+    font-size: 1rem;
+    padding: 2px 40px 2px 8px;
+    border-radius: 4px;
+}
+
+.icon{
+    position: absolute;
+    right: 10px;
+}
+
+.active .icon{
+    color: var(--background-error);
+    animation: slow linear .2s;
+    
+}
+
+.form-gender{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.gender{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 35px;
+    padding: 2px 8px;
+    background-color: var(--background-input);
+    border: solid 1px var(--background-border-input);
+    border-radius: 4px;
+}
+.gender:first-child{
+    margin-right: 5px;
+}
+
+.gender:last-child{
+    margin-left: 5px;
+}
+
+.gender label{
+    font-size: 1rem;
+}
+
+.active .gender{
+    border: solid 1px var(--background-error);
+}
+
+.btn-submit{
+    margin-top: 25px;
+    background: var(--background-first);
+    padding: 10px 0;
+    font-size: 1rem;
+    color: white;
+    border-radius: 8px;
+    border: solid 1px var(--background-border-input)
+}
+
+
+.error{
+    position: absolute;
+    right: calc(100% + 15px);
+    top: 50%;
+    border-radius: 4px;
+    transform: translateY(-50%);
+    display: none;
+    align-items: center;
+    padding: 10px 10px;
+    background-color: var(--background-error);
+    color: white;
+    font-size: .9rem;
+    /* white-space: nowrap; */
+    max-width: 200px;
+    width: 100%;
+    transition: all .2s;
+    animation: slow linear .2s;
+}
+
+.faild{
+    color: var(--background-error);
+    font-size: .8rem;
+    font-weight: 500;
+    padding: 16px 4px 0 4px;
+}
+
+@keyframes slow {
+    from{
+        opacity: .8;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.active > .error{
+    display: flex;
+}
+
+.active > .error::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -19px;
+    border: solid 10px;
+    border-color: transparent transparent transparent var(--background-error);
+}
+
+.toLogin{
+    font-size: .8rem;
+    margin: 16px 5px;
+    text-align: center;
+    border-top: solid 1px var(--background-border-input);
+    padding-top: 16px;
+}
+
+.toLogin a{
+    color: var(--background-first);
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: .9rem;
 }
