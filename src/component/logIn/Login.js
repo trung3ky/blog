@@ -35,7 +35,9 @@ function Login({sattus}) {
 
 
     return (
-        <FormLogin Login={Login} FaildLogin={error} />
+        <div className="login">
+            <FormLogin Login={Login} FaildLogin={error} />
+        </div>
     )
 }
 

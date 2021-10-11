@@ -42,7 +42,10 @@ function Register(props) {
         (
             <Redirect to="/login" />
         ) : 
-        (<FormRegister Register={RegisterHanlder}/>)
+        (<div className="login">
+            <FormRegister Register={RegisterHanlder}/>
+        </div>
+        )
         
         
     )
