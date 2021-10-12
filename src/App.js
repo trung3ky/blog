@@ -5,7 +5,8 @@ import RegisterPage from "./pages/Register/Register";
 // import LoginPage from './component/logIn/Login.js';
 import LoginPage from "./pages/LogIn/Login";
 // import Main from "./component/main/main.js";
-import "./App.css";
+import "./App.scss";
+import Header from "./components/Header";
 
 function App() {
 	console.log();
@@ -25,7 +26,7 @@ function App() {
 			<Router>
 				{idUser !== "" ? <Redirect to="/" /> : <Redirect to="/login" />}
 
-				{/* <Route path="/" exact render={() => <Main />} /> */}
+				<Route path="/" exact render={() => <Header />} />
 				<Route
 					path="/login"
 					exact
