@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 import RegisterPage from "./pages/Register/Register";
@@ -14,7 +14,13 @@ function App() {
 	const [idUser, setIdUser] = useState(() => {
 		return JSON.parse(localStorage.getItem("IdUser")) || "";
 	});
-	const [inforUser, setInforUser] = useState(() => {})
+	const [inforUser, setInforUser] = useState({
+		name: "",
+		image: "",
+		address: "",
+		gender: "",
+		description: ""
+	})
 
 	const getStatus = data => {
 		if(data.id){
@@ -22,12 +28,40 @@ function App() {
 			JSON.stringify(localStorage.setItem("IdUser", data.id));
 		}
 	};
+
+
+	useEffect( () => {
+		const url = `http://localhost:3001/user&iduser=${idUser}`
+		fetch(url)
+		.then(res => {
+			return res.json();
+		})
+		.then(data => {
+			if(data.type === "success"){
+				const user = data.data
+				setInforUser({
+					name: user.name,
+					image: "",
+					address: "",
+					gender: "",
+					description: ""
+				})
+			}
+		});
+	}, [])
 	return (
 		<div className="app">
 			<Router>
 				{idUser !== "" ? <Redirect to="/" /> : <Redirect to="/login" />}
 
-				<Route path="/" exact render={() => <Header />} />
+				<Route path="/" 
+					exact 
+					render={() => 
+						<Header 
+							name = {inforUser.name}
+						/>
+					}
+				/>
 				<Route
 					path="/login"
 					exact
