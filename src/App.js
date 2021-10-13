@@ -14,13 +14,14 @@ function App() {
 	const [idUser, setIdUser] = useState(() => {
 		return JSON.parse(localStorage.getItem("IdUser")) || "";
 	});
+	const [inforUser, setInforUser] = useState(() => {})
 
 	const getStatus = data => {
-		setIdUser(data);
-		JSON.stringify(localStorage.setItem("IdUser", data));
+		if(data.id){
+			setIdUser(data.id);
+			JSON.stringify(localStorage.setItem("IdUser", data.id));
+		}
 	};
-
-	console.log(idUser);
 	return (
 		<div className="app">
 			<Router>

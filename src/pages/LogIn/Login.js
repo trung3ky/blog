@@ -21,7 +21,7 @@ function Login({ sattus }) {
 						setError("Tài khoản mật khẩu không chính xác!");
 					} else {
 						setError("");
-						sattus(data.data.id);
+						sattus(data.data);
 					}
 				});
 		} catch (error) {

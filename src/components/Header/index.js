@@ -7,9 +7,9 @@ import { Profile, TimeLine } from "../../pages";
 function Header() {
 	return (
 		<div className="header">
-			<div class="container">
+			<div className="container">
 				<SideBar />
-				<div class="main">
+				<div className="main">
 					<MainTop />
 					<div class="main-container">
 						<Profile />
@@ -21,25 +21,25 @@ function Header() {
 										<a class="status-menu-item active" href="#">
 											Status
 										</a>
-										<a class="status-menu-item" href="#">
+										<a className="status-menu-item" href="#">
 											Photos
 										</a>
-										<a class="status-menu-item" href="#">
+										<a className="status-menu-item" href="#">
 											Videos
 										</a>
 									</div>
-									<div class="status-main">
+									<div className="status-main">
 										<img
 											src="https://images.genius.com/2326b69829d58232a2521f09333da1b3.1000x1000x1.jpg"
-											class="status-img"
+											className="status-img"
 										/>
 										<textarea
-											class="status-textarea"
+											className="status-textarea"
 											placeholder="Write something to Quan Ha.."
 										></textarea>
 									</div>
-									<div class="status-actions">
-										<a href="#" class="status-action">
+									<div className="status-actions">
+										<a href="#" className="status-action">
 											<svg
 												viewBox="-42 0 512 512"
 												xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,7 @@ function Header() {
 											</svg>
 											People
 										</a>
-										<a href="#" class="status-action">
+										<a href="#" className="status-action">
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
 												viewBox="0 0 512 512"
@@ -75,7 +75,7 @@ function Header() {
 											</svg>
 											Check in
 										</a>
-										<a href="#" class="status-action">
+										<a href="#" className="status-action">
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
 												viewBox="0 0 512 512"
@@ -91,47 +91,47 @@ function Header() {
 											</svg>
 											Mood
 										</a>
-										<button class="status-share">Share</button>
+										<button className="status-share">Share</button>
 									</div>
 								</div>
-								<div class="album box">
-									<div class="status-main">
+								<div className="album box">
+									<div className="status-main">
 										<img
 											src="https://images.genius.com/2326b69829d58232a2521f09333da1b3.1000x1000x1.jpg"
-											class="status-img"
+											className="status-img"
 										/>
-										<div class="album-detail">
-											<div class="album-title">
+										<div className="album-detail">
+											<div className="album-title">
 												<strong>Quan Ha</strong> create new <span>album</span>
 											</div>
-											<div class="album-date">6 hours ago</div>
+											<div className="album-date">6 hours ago</div>
 										</div>
-										<button class="intro-menu"></button>
+										<button className="intro-menu"></button>
 									</div>
-									<div class="album-content">
+									<div className="album-content">
 										When the bass drops, so do my problems.
-										<div class="album-photos">
+										<div className="album-photos">
 											<img
 												src="https://images.unsplash.com/photo-1508179719682-dbc62681c355?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2378&q=80"
 												alt=""
-												class="album-photo"
+												className="album-photo"
 											/>
-											<div class="album-right">
+											<div className="album-right">
 												<img
 													src="https://images.unsplash.com/photo-1502872364588-894d7d6ddfab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
 													alt=""
-													class="album-photo"
+													className="album-photo"
 												/>
 												<img
 													src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
 													alt=""
-													class="album-photo"
+													className="album-photo"
 												/>
 											</div>
 										</div>
 									</div>
-									<div class="album-actions">
-										<a href="#" class="album-action">
+									<div className="album-actions">
+										<a href="#" className="album-action">
 											<svg
 												stroke="currentColor"
 												stroke-width="2"
@@ -144,28 +144,28 @@ function Header() {
 											</svg>
 											87
 										</a>
-										<a href="#" class="album-action">
+										<a href="#" className="album-action">
 											<svg
 												stroke="currentColor"
 												stroke-width="2"
 												fill="none"
 												stroke-linecap="round"
 												stroke-linejoin="round"
-												class="css-i6dzq1"
+												className="css-i6dzq1"
 												viewBox="0 0 24 24"
 											>
 												<path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
 											</svg>
 											20
 										</a>
-										<a href="#" class="album-action">
+										<a href="#" className="album-action">
 											<svg
 												stroke="currentColor"
 												stroke-width="2"
 												fill="none"
 												stroke-linecap="round"
 												stroke-linejoin="round"
-												class="css-i6dzq1"
+												className="css-i6dzq1"
 												viewBox="0 0 24 24"
 											>
 												<path d="M17 1l4 4-4 4" />
@@ -181,7 +181,7 @@ function Header() {
 					</div>
 				</div>
 				<Friends />
-				<div class="overlay"></div>
+				<div className="overlay"></div>
 			</div>
 		</div>
 	);
