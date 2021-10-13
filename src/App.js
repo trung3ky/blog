@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 import RegisterPage from "./pages/Register/Register";
-// import LoginPage from './component/logIn/Login.js';
 import LoginPage from "./pages/LogIn/Login";
-// import Main from "./component/main/main.js";
 import "./App.scss";
-import Header from "./components/Header";
+import Main from "./components/Main";
+import { Switch } from "@material-ui/core";
 
 function App() {
 	console.log();
@@ -19,49 +18,41 @@ function App() {
 		image: "",
 		address: "",
 		gender: "",
-		description: ""
-	})
+		description: "",
+	});
 
 	const getStatus = data => {
-		if(data.id){
+		if (data.id) {
 			setIdUser(data.id);
 			JSON.stringify(localStorage.setItem("IdUser", data.id));
 		}
 	};
 
-
-	useEffect( () => {
-		const url = `http://localhost:3001/user&iduser=${idUser}`
+	useEffect(() => {
+		const url = `http://localhost:3001/user&iduser=${idUser}`;
 		fetch(url)
-		.then(res => {
-			return res.json();
-		})
-		.then(data => {
-			if(data.type === "success"){
-				const user = data.data
-				setInforUser({
-					name: user.name,
-					image: "",
-					address: "",
-					gender: "",
-					description: ""
-				})
-			}
-		});
-	}, [])
+			.then(res => {
+				return res.json();
+			})
+			.then(data => {
+				if (data.type === "success") {
+					const user = data.data;
+					setInforUser({
+						name: user.name,
+						image: "",
+						address: "",
+						gender: "",
+						description: "",
+					});
+				}
+			});
+	}, []);
 	return (
 		<div className="app">
 			<Router>
 				{idUser !== "" ? <Redirect to="/" /> : <Redirect to="/login" />}
 
-				<Route path="/" 
-					exact 
-					render={() => 
-						<Header 
-							name = {inforUser.name}
-						/>
-					}
-				/>
+				<Route path="/" exact render={() => <Main name={inforUser.name} />} />
 				<Route
 					path="/login"
 					exact

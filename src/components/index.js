@@ -1,6 +1,21 @@
-import Header from "./Header";
+import Main from "./Main";
 import SideBar from "./SideBar";
 import Friends from "./Friends";
-import MainTop from "./MainTop";
+import Search from "./Search";
+import PostNews from "./PostNews";
+import News from "./News";
+import ContactItem from "./ContactItem";
+import Stories from "./Stories";
+import SearchFriends from "./SearchFriends";
 
-export { Header, SideBar, Friends, MainTop };
+export {
+	Main,
+	SideBar,
+	Friends,
+	Search,
+	PostNews,
+	News,
+	ContactItem,
+	Stories,
+	SearchFriends,
+};

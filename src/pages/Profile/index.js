@@ -1,14 +1,11 @@
 import React from "react";
+import avatar from "../../assets/images/avatar.jpg";
 
 function Profile(props) {
 	return (
 		<div class="profile">
 			<div class="profile-avatar">
-				<img
-					src="https://images.genius.com/2326b69829d58232a2521f09333da1b3.1000x1000x1.jpg"
-					alt=""
-					class="profile-img"
-				/>
+				<img src={avatar} alt="" class="profile-img" />
 				<div class="profile-name">Quan Ha</div>
 			</div>
 			<img

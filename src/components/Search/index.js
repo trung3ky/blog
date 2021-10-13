@@ -1,6 +1,6 @@
 import React from "react";
 
-function MainTop(props) {
+function Search(props) {
 	return (
 		<div class="search-bar">
 			<input type="text" placeholder="Search" />
@@ -23,4 +23,4 @@ function MainTop(props) {
 	);
 }
 
-export default MainTop;
+export default Search;
