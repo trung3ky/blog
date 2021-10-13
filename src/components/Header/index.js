@@ -4,21 +4,19 @@ import Friends from "../Friends";
 import MainTop from "../MainTop";
 import { Profile, TimeLine } from "../../pages";
 
-function Header({name}) {
+function Header() {
 	return (
 		<div className="header">
 			<div className="container">
 				<SideBar />
 				<div className="main">
 					<MainTop />
-					<div class="main-container">
-						<Profile />
-						<div class="timeline">
-							<TimeLine />
-							<div class="timeline-right">
-								<div class="status box">
-									<div class="status-menu">
-										<a class="status-menu-item active" href="#">
+					<div className="main-container">
+						<div className="timeline">
+							<div className="timeline-right">
+								<div className="status box">
+									<div className="status-menu">
+										<a className="status-menu-item active" href="#">
 											Status
 										</a>
 										<a className="status-menu-item" href="#">
@@ -180,7 +178,7 @@ function Header({name}) {
 						</div>
 					</div>
 				</div>
-				<Friends name={name}/>
+				<Friends />
 				<div className="overlay"></div>
 			</div>
 		</div>
