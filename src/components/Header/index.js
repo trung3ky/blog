@@ -3,7 +3,7 @@ import SideBar from "../SideBar";
 import Friends from "../Friends";
 import MainTop from "../MainTop";
 
-function Header() {
+function Header({name}) {
 	return (
 		<div className="header">
 			<div className="container">
@@ -177,7 +177,7 @@ function Header() {
 						</div>
 					</div>
 				</div>
-				<Friends />
+				<Friends name={name}/>
 				<div className="overlay"></div>
 			</div>
 		</div>
