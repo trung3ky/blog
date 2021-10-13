@@ -1,5 +1,5 @@
 import React from "react";
-
+import avatar from "../../assets/images/avatar.jpg";
 function SideBar(props) {
 	return (
 		<div class="left-side">
@@ -33,7 +33,6 @@ function SideBar(props) {
 				<div class="side-menu">
 					<a href="#">
 						<svg
-							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
 							stroke="currentColor"
 							stroke-width="2"
@@ -62,7 +61,6 @@ function SideBar(props) {
 					</a>
 					<a href="#">
 						<svg
-							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
 							stroke="currentColor"
 							stroke-width="2"
@@ -77,7 +75,6 @@ function SideBar(props) {
 					</a>
 					<a href="#">
 						<svg
-							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
 							stroke="currentColor"
 							stroke-width="2"
@@ -92,7 +89,6 @@ function SideBar(props) {
 					</a>
 					<a href="#">
 						<svg
-							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 24 24"
 							fill="none"
 							stroke="currentColor"
@@ -108,7 +104,6 @@ function SideBar(props) {
 					</a>
 					<a href="#">
 						<svg
-							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 24 24"
 							fill="none"
 							stroke="currentColor"
@@ -127,7 +122,7 @@ function SideBar(props) {
 				<div class="side-title">YOUR FAVOURITE</div>
 				<div class="side-menu">
 					<a href="#">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 472.11 472.11">
+						<svg viewBox="0 0 472.11 472.11">
 							<path
 								d="M260.07 216.11a63.94 63.94 0 00-28.26-53.1 55.95 55.95 0 00-43.74-90.9c-.8 0-1.6.1-2.4.12a56 56 0 10-107.2 0c-.8 0-1.6-.12-2.4-.12a55.95 55.95 0 00-43.75 90.9 64 64 0 000 106.2 55.95 55.95 0 0043.75 90.9h112a55.95 55.95 0 0043.74-90.9 63.94 63.94 0 0028.26-53.1z"
 								fill="#6a9923"
@@ -160,11 +155,7 @@ function SideBar(props) {
 						Foresto
 					</a>
 					<a href="#">
-						<svg
-							viewBox="0 0 56 58"
-							width="512"
-							xmlns="http://www.w3.org/2000/svg"
-						>
+						<svg viewBox="0 0 56 58" width="512">
 							<g fill="none" transform="translate(0 -1)">
 								<path
 									d="M46.8 48.4a30.5 30.5 0 01-8.8-24l6.9-12C44.4 9.6 41.6 1 28 1A32 32 0 003.4 13.5a.2.2 0 00.2.4l2.5-.5a.5.5 0 01.4.8 14.2 14.2 0 00-3.3 4.3.2.2 0 00.3.4l2.5-.6a.5.5 0 01.6.6C5 22.5-.4 37.1.9 56.8a.5.5 0 00.9.2c2.2-3.3 5-6.2 8.4-8.3a.5.5 0 01.7.4c0 2.4.8 4.7 2.4 6.4a.5.5 0 001-.1 14 14 0 015.4-8h.5c1.7 1.2 3 3.8 3.6 5.8.5 1.8 1 3.6 1.1 5.4a.5.5 0 00.8.4c7-4 7.1-8.5 7.2-8.6a.5.5 0 01.9-.2c1.4 1.6 2.7 3.4 3.7 5.2a.5.5 0 001 0c.8-2 1.3-4.3 1.5-6.6l6.4.5a.5.5 0 00.4-1z"
@@ -198,7 +189,7 @@ function SideBar(props) {
 						Birds
 					</a>
 					<a href="#">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+						<svg viewBox="0 0 512 512">
 							<path
 								d="M339.4 346.5a636.5 636.5 0 00-46.7-140.2 8.4 8.4 0 00-7.6-4.8h-21a8.4 8.4 0 00-8 11 662.9 662.9 0 0129 289.7 8.4 8.4 0 008.4 9.5h50.3c4.4 0 8.1-3.6 8.3-8 2.3-52.8-2-105.6-12.7-157.2z"
 								fill="#ff9940"
@@ -258,11 +249,7 @@ function SideBar(props) {
 						Nature
 					</a>
 					<a href="#">
-						<svg
-							viewBox="0 0 511.4 511.4"
-							width="512"
-							xmlns="http://www.w3.org/2000/svg"
-						>
+						<svg viewBox="0 0 511.4 511.4" width="512">
 							<path
 								d="M102.8 145c-47.5 0-86 38.6-86 86v29.3h168.6V145z"
 								fill="#0dca71"
@@ -333,7 +320,7 @@ function SideBar(props) {
 						Animals
 					</a>
 					<a href="#">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+						<svg viewBox="0 0 512 512">
 							<path
 								d="M176.6 360l-51.1-24.2-26-12.3L155.1 187l35.5-8.8s-58 97.4-14 181.9z"
 								fill="#f8b40e"
@@ -410,7 +397,7 @@ function SideBar(props) {
 						Motobike
 					</a>
 					<a href="#">
-						<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+						<svg viewBox="0 0 512 512">
 							<path
 								d="M424 101l-8 25v6l16 21c3 4 0 9-4 9h-27l-5 2-15 22c-3 4-9 3-10-2l-8-25-4-4-25-8c-5-1-6-7-2-10l22-15 2-5V90c0-4 5-7 9-4l21 16h6l25-8c4-2 9 3 7 7z"
 								fill="#fe9901"
@@ -480,7 +467,7 @@ function SideBar(props) {
 					</a>
 				</div>
 			</div>
-			<a href="https://twitter.com/AysnrTrkk" class="follow-me" target="_blank">
+			<a href="#" class="follow-me" target="_blank">
 				<span class="follow-text">
 					<svg
 						viewBox="0 0 24 24"
@@ -496,7 +483,7 @@ function SideBar(props) {
 					Follow me on Twitter
 				</span>
 				<span class="developer">
-					<img src="https://pbs.twimg.com/profile_images/1253782473953157124/x56UURmt_400x400.jpg" />
+					<img src={avatar} />
 					Aysenur Turk — @AysnrTrkk
 				</span>
 			</a>
