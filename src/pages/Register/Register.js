@@ -5,13 +5,9 @@ import { Redirect } from "react-router";
 
 function Register(props) {
 	const [type, setType] = useState("");
-	// const [email, sêtmail] = useState("")
-
-	// useEffect(() => {
-
-	// }, [])
 
 	const RegisterHanlder = data => {
+		console.log(data)
 		try {
 			fetch("http://localhost:3001/register", {
 				method: "POST",

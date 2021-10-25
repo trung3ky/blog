@@ -1,6 +1,6 @@
 import React from "react";
 
-function Friends({name}) {
+function Friends({name, image}) {
 	return (
 		<div className="right-side">
 			<div className="account">
@@ -20,7 +20,7 @@ function Friends({name}) {
 				<span className="account-user">
 					{name}
 					<img
-						src="https://images.genius.com/2326b69829d58232a2521f09333da1b3.1000x1000x1.jpg"
+						src={image}
 						alt=""
 						className="account-profile"
 					/>

@@ -11,19 +11,22 @@ html {
 }
 
 body {
+	position: relative;
 	font-family: $body-font;
 	background-color: #373e57;
 	color: #ccc8db;
+	padding: 0;
+	margin: 0;
 }
 
 .container {
 	padding: 0;
 	background-color: $bg-color;
 	display: flex;
-	max-width: 1600px;
+	max-width: 100% !important;
 	height: 100vh;
 	overflow: hidden;
-	margin: 0 auto;
+	margin: 0;
 }
 
 .left-side {
@@ -518,3 +521,15 @@ body {
 ::-webkit-scrollbar-thumb:hover {
 	background: rgba(255, 255, 255, 0.1);
 }
+
+
+.swiper-container {
+	background-color: white;
+	border-radius: 5px;
+}
+
+.swiper-wrapper {
+	display: flex;
+	align-items: center;
+}
+

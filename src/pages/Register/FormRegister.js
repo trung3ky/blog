@@ -12,6 +12,7 @@ function FormRegister({ Register }) {
         password: "",
         date: "",
         gender: "",
+        image: ""
     }
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -43,9 +44,8 @@ function FormRegister({ Register }) {
         }
 
         setError({...getError, ...arrError})
-
-
-        if(getUser.name !== "" && re.test(getUser.email.toLowerCase()) && getUser.date !== "" && getUser.password.length >= 6 && getUser.gender !== "" ){
+        
+        if(getUser.name !== "" && re.test(getUser.email.toLowerCase()) && getUser.date !== "" && getUser.password.length >= 6 && getUser.gender !== "" && getUser.image !== ""){
             Register(getUser)
         }
         
@@ -85,14 +85,34 @@ function FormRegister({ Register }) {
                 [e.target.name]: ""
             })
         }
-        setUser({
+        setUser( getUser => ({
             ...getUser,
             [e.target.name]: e.target.value.trim()
-        })
+        }))
+       
+    }
+
+    function handlerClick(e){
+        const {name, value} = e.target;
+        if(e.target.name === "gender" && e.target.value === "Nam") {
+            setUser(getUser => ({
+                ...getUser,
+                image: "./images/user-male.jpg",
+                [name]: value
+            }))
+        }
+        
+        if(e.target.name === "gender" && e.target.value === "Nu"){
+            setUser(getUser => ({
+                ...getUser,
+                image: "./images/user-female.jpg",
+                gender: "Nu"
+            }))
+        }
     }
 
     return (
-        <div className="register">
+        <div className="register">   
             <form onSubmit={submitHandler} autoComplete="off">
                 <div className="form-inner">
                     <h2>Đăng ký</h2>
@@ -121,11 +141,17 @@ function FormRegister({ Register }) {
                         <div className="form-gender">
                             <div className="gender">
                                 <label>Nữ</label>
-                                <input type="radio" name="gender" value="Nu" onChange={onChangeHanlder}/>
+                                <input type="radio" 
+                                    name="gender" 
+                                    value="Nu" 
+                                    onClick={handlerClick}/>
                             </div>
                             <div className="gender">
                                 <label>Nam</label>
-                                <input type="radio" name="gender" value="Nam" onChange={onChangeHanlder}/>
+                                <input type="radio" 
+                                    name="gender" 
+                                    value="Nam" 
+                                    onClick={handlerClick}/>
                             </div>
                         </div>
                         <span className="error">{getError.gender !== "" ? getError.gender : ""}</span>

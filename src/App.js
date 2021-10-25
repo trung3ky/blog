@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import RegisterPage from "./pages/Register/Register";
 // import LoginPage from './component/logIn/Login.js';
 import LoginPage from "./pages/LogIn/Login";
@@ -9,7 +9,6 @@ import "./App.scss";
 import Header from "./components/Header";
 
 function App() {
-	console.log();
 
 	const [idUser, setIdUser] = useState(() => {
 		return JSON.parse(localStorage.getItem("IdUser")) || "";
@@ -26,28 +25,42 @@ function App() {
 		if(data.id){
 			setIdUser(data.id);
 			JSON.stringify(localStorage.setItem("IdUser", data.id));
+
+			setInforUser( getInforUser => ({
+				...getInforUser,
+				...data
+			}))
 		}
 	};
 
 
 	useEffect( () => {
-		const url = `http://localhost:3001/user&iduser=${idUser}`
-		fetch(url)
-		.then(res => {
-			return res.json();
-		})
-		.then(data => {
-			if(data.type === "success"){
-				const user = data.data
-				setInforUser({
-					name: user.name,
-					image: "",
-					address: "",
-					gender: "",
-					description: ""
-				})
+		let isRun = true;
+		(async () => {
+			try {
+				if(idUser) {
+					const url = `http://localhost:3001/user&iduser=${idUser.toString()}`
+					const request = await fetch(url)
+					const response = await request.json()
+					const {type, data} = response
+			
+					if(isRun && type === "success"){
+						setInforUser( getInforUser => ({
+							...getInforUser,
+							...data
+						}))
+					}
+				}
+
+			} catch (error) {
+				alert(error.message)
 			}
-		});
+
+		})();
+
+		return () => {
+			isRun = false
+		}
 	}, [])
 	return (
 		<div className="app">
@@ -58,7 +71,7 @@ function App() {
 					exact 
 					render={() => 
 						<Header 
-							name = {inforUser.name}
+							info = {inforUser}
 						/>
 					}
 				/>
