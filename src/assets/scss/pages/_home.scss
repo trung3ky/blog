@@ -373,6 +373,7 @@
 }
 
 .album-action {
+	position: relative;
 	margin-right: 20px;
 	text-decoration: none;
 	color: #a2a4b4;
@@ -381,6 +382,10 @@
 	font-weight: 600;
 	&:hover {
 		color: #fff;
+	}
+
+	&:hover .modal-like {
+		display: block;
 	}
 	svg {
 		width: 16px;

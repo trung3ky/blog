@@ -1,13 +1,6 @@
 import React, {useRef, useState, useEffect} from 'react';
 import classNames from 'classnames'
-
-
-import { 
-  Modal, 
-  Button,
-  DropdownButton,
-  Dropdown
-} from 'react-bootstrap';
+import { Modal} from 'react-bootstrap';
 
 const ModalAddBlog = (props) => {
     const {name, image, id, getdata, reset} = props;
@@ -85,8 +78,6 @@ const ModalAddBlog = (props) => {
         getdata(data)
       }
     }
-
-  const {contentPost} = data
   return (
     <Modal
       {...props}
@@ -102,7 +93,7 @@ const ModalAddBlog = (props) => {
       <Modal.Body>
         <div className="content--header">
           <div className="wraper-iamge">
-            <img src={image} />
+            <img src={image} alt="img" />
           </div>
           <div className="wraper-infor">
             <span>{name}</span>

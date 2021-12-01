@@ -1,10 +1,24 @@
-import React, {useState, useEffect} from 'react'
-import PropTypes from 'prop-types'
+import React, {useState, useEffect, useContext} from 'react'
 import ImagePost from '../ImagePost'
+import {Like} from './like'
+import {socketContext} from '../../socketProvider'
 
 function Blog(props) {
-
     const [blog, setBlog] = useState([])
+    const socket = useContext(socketContext)
+    const idUser = localStorage.getItem("IdUser")
+
+    useEffect(() => {
+        if(blog.length > 0) {
+            blog.map(item => {
+                socket.current.emit('create-room-like', {idPost: item.id_post, idUser: item.id_user_post})
+            })
+        }
+    },[blog])
+
+    useEffect(() => {
+        socket.current.emit('user-connected', idUser)
+    }, [])
 
     useEffect(() => {
         (async () =>{
@@ -26,12 +40,10 @@ function Blog(props) {
     
     return (
         blog.length > 0 && blog.map( (item,index) => {
-            console.log(item)
             const {image_post} = item
             let imageList = []
             if(image_post !== null && image_post.split(',')){
                 imageList = image_post.split(',')
-                console.log(imageList)
             }
             return <div className="album box" key={item.id_post}>
                         <div className="status-main">
@@ -65,19 +77,7 @@ function Blog(props) {
                             : ""}
                         </div>
                         <div className="album-actions">
-                            <a href="#" className="album-action">
-                                <svg
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    fill="none"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
-                                </svg>
-                                87
-                            </a>
+                            <Like idBlog={item.id_post} socket={socket} idUserPost={item.id_user_post}/>
                             <a href="#" className="album-action">
                                 <svg
                                     stroke="currentColor"

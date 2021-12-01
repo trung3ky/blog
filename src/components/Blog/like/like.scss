@@ -1,0 +1,17 @@
+.modal-like {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: black;
+    color: white;
+    top: 120%;
+    min-width: 150px;
+    padding: 12px;
+    border-radius: 3px;
+
+    div {
+        line-height: 1.6rem;
+        white-space: nowrap;
+    }
+    
+}

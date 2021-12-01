@@ -5,14 +5,11 @@ import MainTop from "../MainTop";
 import Blog from "../Blog";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ModalAddBlog from "../ModalAddBlog";
-import { Modal,Button } from 'react-bootstrap';
 import Loader from "../Loader";
-import axios from "axios"
 
 
 function Header({info}) {
 	const {name, image, id} = info
-
 	const [modalShow, setModalShow] = useState(false);
 	const [loader, setLoader] = useState(false);
 	const [reset, setReset] = useState(false);
@@ -40,7 +37,6 @@ function Header({info}) {
 			const {type} = response
 
 			if(type === "success"){
-				console.log("đăng bài thành công");
 				setLoader(false)
 				setModalShow(false)
 				if(add){
@@ -71,13 +67,13 @@ function Header({info}) {
 							<div className="timeline-right">
 								<div className="status box">
 									<div className="status-menu">
-										<a className="status-menu-item active" href="#">
+										<a className="status-menu-item active" href="#a">
 											Status
 										</a>
-										<a className="status-menu-item" href="#">
+										<a className="status-menu-item" href="#b">
 											Photos
 										</a>
-										<a className="status-menu-item" href="#">
+										<a className="status-menu-item" href="#c">
 											Videos
 										</a>
 									</div>

@@ -3,10 +3,13 @@ import ReactDOM from "react-dom";
 import "./assets/scss/styles.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import {SocketProvider} from './socketProvider'
 
 ReactDOM.render(
 	<React.StrictMode>
-		<App />
+		<SocketProvider>
+			<App />
+		</SocketProvider>
 	</React.StrictMode>,
 	document.getElementById("root")
 );

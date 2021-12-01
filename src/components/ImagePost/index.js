@@ -1,35 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import {  Carousel } from 'react-bootstrap';
-
 import { Swiper, SwiperSlide } from "swiper/react";
-
 // Import Swiper styles
 import "swiper/swiper-bundle.min.css";
-
-
-
 // import Swiper core and required modules
 import SwiperCore, {
   Navigation,Pagination,Mousewheel,Keyboard
 } from 'swiper';
-
 // install Swiper modules
 SwiperCore.use([Navigation,Pagination,Mousewheel,Keyboard]);
-
-
-
-
-function getMeta(url){
-    var img = new Image();
-    img.onload = function() {
-        // alert( this.width +" "+ this.height );
-    };
-    img.src = url; 
-    console.log([img]) 
-    return {w: img.width,h: img.naturalHeight}
-}
-
 function ImagePost({imageList}) {
     return (
         <Swiper 

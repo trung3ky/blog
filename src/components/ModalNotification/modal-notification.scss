@@ -1,0 +1,75 @@
+.modal-notification{
+    position: absolute;
+    right: 0;
+    top: 60px;
+    width: 280px;
+    max-height: calc(100vh - 70px);
+    background-color: white;
+    padding: 16px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow-y: scroll;
+
+    // &::after{
+    //     display: block;
+    //     content: '';
+    //     position: absolute;
+    //     top: -30px;
+    //     left: 50px;
+    //     border: 15px solid;
+    //     border-color: transparent transparent white transparent;
+    // }
+
+    .notification-list {
+        .notification-item {
+        display: flex;
+        gap: 15px;
+
+            .notification-image {
+                height: 45px;
+                width: 45px;
+                border-radius: 50%;
+                overflow: hidden;
+                
+                img{
+                    object-fit: cover;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+
+            .notification-content {
+                flex: 1;
+
+                .content {
+
+                    span {
+                        font-weight: bold;
+                    }
+                }
+
+                .time {
+                    color: blue;
+                    font-weight: bold;
+                    font-size: 13px;
+                }
+            }
+        }
+
+        .notification-item+.notification-item{
+            margin-top: 10px
+        }
+    }
+    
+
+    .no-notification {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:  24px 0;
+
+        span {
+            font-weight: bold;
+        }
+    }
+}

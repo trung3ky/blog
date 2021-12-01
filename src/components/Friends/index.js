@@ -1,10 +1,73 @@
-import React from "react";
-
+import React, { useEffect, useContext, useState } from "react";
+import {socketContext} from '../../socketProvider'
+import { ModalNotification } from "../ModalNotification";
+import { ModalNotificationItem } from "../ModalNotification/ModalNotificationItem";
 function Friends({name, image}) {
+	const socket = useContext(socketContext)
+	const [notifications, setNotifications] = useState(false)
+	const [notificationList, setNotificationList] = useState([])
+	const [render, setRender] = useState({status: false})
+	const [dataLike, setDataLike] = useState({})
+	const [smallNotification, setsmallNotification] = useState(false)
+    const idUser = localStorage.getItem("IdUser")
+
+	useEffect(() => {
+        socket.current.on('have-like-owner', data => {
+			setRender({status: true})
+			setDataLike(() => ({
+				idBlog: data.idBlog, idUserLike: data.idUserLike
+			}))
+			setsmallNotification(true)
+        })
+		socket.current.on('remove-like-owner', data => {
+            setRender({status: false})
+        })
+    }, [])
+
+	function handleNotifications(){
+		if(notifications){
+			setNotifications(() => false)
+		}else {
+			setNotifications(() => true)
+		}
+	}
+
+	useEffect(() => {
+		(async () => {
+			try {
+				console.log("thoong baso")
+				fetch("http://localhost:3001/get-notification", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ idUser }),
+				}).then(res => {
+					return res.json();
+				})
+				.then(data => {
+					if(data.type === "success") {
+						setNotificationList(() => data.data)
+					} else if(data.type === "NoData") {
+						setNotificationList(() => [])
+					}
+				})
+			
+			} catch (error) {
+				alert("lỗi thông báo")	
+			}
+		})();
+	}, [render, idUser])
+
+	function setHideSmallModal() {
+		setsmallNotification(() => false)
+	}
+
 	return (
 		<div className="right-side">
+			{console.log("render")}
 			<div className="account">
-				<button className="account-button">
+				<button className="account-button"
+					onClick={handleNotifications}
+				>
 					<svg
 						stroke="currentColor"
 						stroke-width="2"
@@ -16,7 +79,12 @@ function Friends({name, image}) {
 					>
 						<path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" />
 					</svg>
+					<span>{notifications}</span>
 				</button>
+				{
+					notifications && <ModalNotification data={notificationList}/>
+				}
+				
 				<span className="account-user">
 					{name}
 					<img
@@ -100,6 +168,11 @@ function Friends({name, image}) {
 					</svg>
 				</div>
 			</div>
+			<ModalNotificationItem 
+				smallNotification={smallNotification} 
+				setHideSmallModal={setHideSmallModal}
+				dataLike={dataLike}
+			/>
 		</div>
 	);
 }

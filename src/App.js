@@ -61,6 +61,7 @@ function App() {
 		return () => {
 			isRun = false
 		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 	return (
 		<div className="app">
